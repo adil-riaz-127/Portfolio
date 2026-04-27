@@ -1,6 +1,16 @@
+import { useEffect, useState } from 'react';
 import './App.css';
 
 function App() {
+  const navItems = [
+    'home',
+    'about',
+    'education',
+    'skills',
+    'experience',
+    'projects',
+    'contact',
+  ];
   const skills = [
     'ASP.NET Core',
     'C#',
@@ -64,35 +74,136 @@ function App() {
   ];
 
   const hobbies = ['Cricket', 'Badminton', 'Travel'];
-  const project = {
-    name: 'MWETANA Schoolink PX',
-    description:
-      'A web-based school management platform that streamlines admissions, academics, finance, teacher workflows, and parent engagement for educational institutions.',
-    image: 'https://mwetanaschoolink.com/assetsLand/media/images/laptop.png',
-    link: 'https://mwetanaschoolink.com/PxHome',
-  };
+  const projects = [
+    {
+      title: 'MWETANA Schoolink PX',
+      image: 'https://mwetanaschoolink.com/assetsLand/media/images/laptop.png',
+      challenge:
+        'Needed an integrated platform for school operations across academics, finance, and communication.',
+      action:
+        'Contributed to ASP.NET Core based modules for scalable workflows, stakeholder login access, and reporting.',
+      result:
+        'Delivered a streamlined school management experience with efficient administrative and educational processes.',
+      tech: ['ASP.NET Core', 'SQL Server', 'REST APIs', 'JavaScript'],
+      demo: 'https://mwetanaschoolink.com/PxHome',
+    },
+    {
+      title: 'RESTful API Solutions',
+      image: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1200&q=80',
+      challenge:
+        'Different client applications required stable backend integration with secure and maintainable APIs.',
+      action:
+        'Designed and implemented .NET Core Web APIs with clean architecture, validation, and database optimization.',
+      result:
+        'Improved integration reliability and reduced development time for frontend and third-party consumers.',
+      tech: ['.NET Core Web API', 'Entity Framework', 'SQL', 'Swagger'],
+      demo: '#contact',
+    },
+    {
+      title: 'MVC Business Applications',
+      image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80',
+      challenge:
+        'Business teams needed robust web applications with fast performance and maintainable codebases.',
+      action:
+        'Built ASP.NET MVC applications with modular components, optimized queries, and user-focused interfaces.',
+      result:
+        'Shipped scalable solutions that supported daily operations with better speed and usability.',
+      tech: ['ASP.NET MVC', 'C#', 'jQuery', 'AJAX'],
+      demo: '#contact',
+    },
+  ];
+  const [activeSection, setActiveSection] = useState('home');
+  const [showTop, setShowTop] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const sectionIds = [
+      'home',
+      'about',
+      'education',
+      'skills',
+      'experience',
+      'projects',
+      'contact',
+    ];
+    const onScroll = () => {
+      const scrollPosition = window.scrollY + 140;
+      const visibleSections = sectionIds
+        .map((id) => {
+          const element = document.getElementById(id);
+          return element ? { id, top: element.offsetTop } : null;
+        })
+        .filter(Boolean)
+        .sort((a, b) => a.top - b.top);
+
+      let current = 'home';
+      visibleSections.forEach((section) => {
+        if (scrollPosition >= section.top) {
+          current = section.id;
+        }
+      });
+      setActiveSection(current);
+      setShowTop(window.scrollY > 480);
+      setIsScrolled(window.scrollY > 40);
+    };
+
+    onScroll();
+    window.addEventListener('scroll', onScroll);
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
   return (
-    <div className="portfolio-page">
-      <header className="hero">
+    <div className={`portfolio-page ${isScrolled ? 'scrolled' : ''}`}>
+      <nav className={`top-nav ${isScrolled ? 'scrolled' : ''}`}>
+        <div className="nav-links">
+          {navItems.map((item) => (
+            <a
+              key={item}
+              href={`#${item}`}
+              className={activeSection === item ? 'active' : ''}
+            >
+              {item.charAt(0).toUpperCase() + item.slice(1)}
+            </a>
+          ))}
+        </div>
+      </nav>
+
+      <header className="hero" id="home">
         <div className="hero-content">
-          <p className="hero-role">Dot Net Developer</p>
-          <h1>Adil Sanaullah</h1>
-          <p className="hero-summary">
-            Software Engineer with 4+ years of development experience in
-            ASP.NET / .NET Core, RESTful APIs, SQL Server, JavaScript, jQuery,
-            MVC, React, and web services. Focused on building robust,
-            maintainable, and scalable solutions.
-          </p>
-          <div className="hero-cta">
-            <a href="mailto:adilsanaullah127@gmail.com">Email Me</a>
-            <a href="tel:+923216128127">Call Me</a>
+          <div className="hero-left">
+            <p className="hero-greeting">Hi, I&apos;m</p>
+            <h1>Adil Sanaullah</h1>
+            <p className="hero-role">Software Engineer</p>
+            <div className="hero-cta">
+              <a href="#projects">View My Work</a>
+              <a href="mailto:adilsanaullah127@gmail.com">Email Me</a>
+            </div>
+          </div>
+          <div className="hero-right">
+            <div className="profile-ring">
+              <div className="profile-core">AS</div>
+            </div>
           </div>
         </div>
       </header>
 
       <main className="content">
-        <section className="card">
+        <section className="card section-heading-card" id="about">
+          <p className="section-kicker">Who I am</p>
+          <h2>About Me</h2>
+          <p>
+            Software Engineer with 4+ years of development experience in
+            ASP.NET / .NET Core, RESTful APIs, SQL Server, JavaScript, jQuery,
+            MVC, React, and web services. Focused on building robust,
+            maintainable, and scalable solutions.
+          </p>
+          <p>
+            Core Tech: .NET Core, ASP.NET MVC, Entity Framework, C#, JavaScript,
+            SQL Server, and RESTful APIs.
+          </p>
+        </section>
+
+        <section className="card" id="contact">
           <h2>Contact</h2>
           <ul>
             <li>Phone: +92 321 6128127</li>
@@ -101,7 +212,29 @@ function App() {
           </ul>
         </section>
 
-        <section className="card">
+        <section className="card" id="education">
+          <p className="section-kicker">My academic background</p>
+          <h2>Education & Certifications</h2>
+          <div className="timeline">
+            <article className="timeline-item">
+              <p className="period">2015 - 2019</p>
+              <h3>Bachelor of Computer Science</h3>
+              <p className="company">University of Central Punjab</p>
+            </article>
+          </div>
+          <div className="cert-grid">
+            {certifications.map((certificate) => (
+              <article className="mini-card" key={certificate.name}>
+                <p className="period">{certificate.date}</p>
+                <h3>{certificate.name}</h3>
+                <p className="company">{certificate.issuer}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="card" id="skills">
+          <p className="section-kicker">My stack</p>
           <h2>Skills</h2>
           <div className="tag-list">
             {skills.map((skill) => (
@@ -112,7 +245,8 @@ function App() {
           </div>
         </section>
 
-        <section className="card">
+        <section className="card" id="experience">
+          <p className="section-kicker">My journey</p>
           <h2>Work Experience</h2>
           <div className="timeline">
             {experiences.map((item) => (
@@ -130,61 +264,78 @@ function App() {
           </div>
         </section>
 
-        <section className="card">
-          <h2>Featured Project</h2>
-          <article className="project-card">
-            <img src={project.image} alt="MWETANA Schoolink PX project" />
-            <div className="project-content">
-              <h3>{project.name}</h3>
-              <p>{project.description}</p>
-              <a href={project.link} target="_blank" rel="noreferrer">
-                Visit Project
-              </a>
+        <section className="card" id="projects">
+          <p className="section-kicker">What I&apos;ve built</p>
+          <h2>Projects</h2>
+          <div className="projects-grid">
+            {projects.map((item) => (
+              <article className="project-card detailed" key={item.title}>
+                <img src={item.image} alt={`${item.title} project preview`} />
+                <div className="project-content">
+                  <h3>{item.title}</h3>
+                  <p>
+                    <strong>Challenge:</strong> {item.challenge}
+                  </p>
+                  <p>
+                    <strong>Action:</strong> {item.action}
+                  </p>
+                  <p>
+                    <strong>Result:</strong> {item.result}
+                  </p>
+                  <div className="tag-list">
+                    {item.tech.map((tag) => (
+                      <span key={tag} className="tag">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                  <a href={item.demo} target="_blank" rel="noreferrer">
+                    View Project
+                  </a>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="card personal-card">
+          <h2>Languages & Hobbies</h2>
+          <div className="personal-grid">
+            <div className="personal-block">
+              <h3>Languages</h3>
+              <ul className="language-list">
+                {languages.map((language) => (
+                  <li key={language.name}>
+                    <span>{language.name}</span>
+                    <strong>{language.level}</strong>
+                  </li>
+                ))}
+              </ul>
             </div>
-          </article>
-        </section>
-
-        <section className="card split">
-          <div>
-            <h2>Education</h2>
-            <h3>University of Central Punjab</h3>
-            <p>Bachelor of Computer Science (2015 - 2019)</p>
-          </div>
-          <div>
-            <h2>Languages</h2>
-            <ul>
-              {languages.map((language) => (
-                <li key={language.name}>
-                  {language.name} - {language.level}
-                </li>
-              ))}
-            </ul>
-          </div>
-        </section>
-
-        <section className="card split">
-          <div>
-            <h2>Certificates</h2>
-            <ul>
-              {certifications.map((certificate) => (
-                <li key={certificate.name}>
-                  <strong>{certificate.name}</strong> - {certificate.issuer} ({certificate.date})
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div>
-            <h2>Hobbies</h2>
-            <div className="tag-list">
-              {hobbies.map((hobby) => (
-                <span key={hobby} className="tag">
-                  {hobby}
-                </span>
-              ))}
+            <div className="personal-block">
+              <h3>Hobbies</h3>
+              <div className="tag-list hobby-tags">
+                {hobbies.map((hobby) => (
+                  <span key={hobby} className="tag">
+                    {hobby}
+                  </span>
+                ))}
+              </div>
             </div>
           </div>
         </section>
       </main>
+
+      {showTop && (
+        <button
+          className="scroll-top"
+          type="button"
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          aria-label="Scroll to top"
+        >
+          ^
+        </button>
+      )}
     </div>
   );
 }
