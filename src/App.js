@@ -5,11 +5,11 @@ function App() {
   const navItems = [
     'home',
     'about',
+    'contact',
     'education',
     'skills',
     'experience',
     'projects',
-    'contact',
   ];
   const skills = [
     'ASP.NET Core',
@@ -176,12 +176,16 @@ function App() {
             <p className="hero-role">Software Engineer</p>
             <div className="hero-cta">
               <a href="#projects">View My Work</a>
-              <a href="mailto:adilsanaullah127@gmail.com">Email Me</a>
+              <a href="/Adil%20.net%20resume.pdf" download>
+                Download CV
+              </a>
             </div>
           </div>
           <div className="hero-right">
             <div className="profile-ring">
-              <div className="profile-core">AS</div>
+              <div className="profile-core">
+                <img src="/dp.jpg" alt="Adil Sanaullah" className="profile-image" />
+              </div>
             </div>
           </div>
         </div>
