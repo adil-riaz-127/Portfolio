@@ -88,28 +88,28 @@ function App() {
       demo: 'https://mwetanaschoolink.com/PxHome',
     },
     {
-      title: 'RESTful API Solutions',
-      image: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1200&q=80',
+      title: 'NaFAA Self-Service Portal',
+      image: 'https://fims.nafaa.gov.lr/images/group%20190.png',
       challenge:
-        'Different client applications required stable backend integration with secure and maintainable APIs.',
+        'Government fisheries services needed a central self-service platform for licensing, permits, authorizations, and certificate workflows.',
       action:
-        'Designed and implemented .NET Core Web APIs with clean architecture, validation, and database optimization.',
+        'Built and maintained a citizen-facing portal with registration/login flows, application status tracking, and categorized digital service modules.',
       result:
-        'Improved integration reliability and reduced development time for frontend and third-party consumers.',
-      tech: ['.NET Core Web API', 'Entity Framework', 'SQL', 'Swagger'],
-      demo: '#contact',
+        'Enabled easier access to fisheries-related services and improved process visibility for applicants through one online system.',
+      tech: ['ASP.NET', 'C#', 'JavaScript', 'SQL Server'],
+      demo: 'https://fims.nafaa.gov.lr/',
     },
     {
-      title: 'MVC Business Applications',
-      image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80',
+      title: 'LBR Self-Service Portal',
+      image: 'https://lbrportal.mwetanacloud.com/images/group%20190.png',
       challenge:
-        'Business teams needed robust web applications with fast performance and maintainable codebases.',
+        'Business registration in Liberia required a faster, centralized, and fully digital workflow for citizens and organizations.',
       action:
-        'Built ASP.NET MVC applications with modular components, optimized queries, and user-focused interfaces.',
+        'Built and supported an online self-service portal covering name search, registration, renewals, ownership updates, and status tracking.',
       result:
-        'Shipped scalable solutions that supported daily operations with better speed and usability.',
-      tech: ['ASP.NET MVC', 'C#', 'jQuery', 'AJAX'],
-      demo: '#contact',
+        'Simplified end-to-end business registration processes with improved accessibility and transparency for applicants.',
+      tech: ['ASP.NET', 'C#', 'JavaScript', 'SQL Server'],
+      demo: 'https://lbrportal.mwetanacloud.com/',
     },
   ];
   const [activeSection, setActiveSection] = useState('home');
