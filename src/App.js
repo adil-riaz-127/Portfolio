@@ -84,7 +84,7 @@ function App() {
         'Contributed to ASP.NET Core based modules for scalable workflows, stakeholder login access, and reporting.',
       result:
         'Delivered a streamlined school management experience with efficient administrative and educational processes.',
-      tech: ['ASP.NET Core', 'SQL Server', 'REST APIs', 'JavaScript'],
+      tech: ['ASP.NET Core', 'MVC', 'C#', 'HTML', 'CSS', 'JavaScript', 'AJAX', 'SQL'],
       demo: 'https://mwetanaschoolink.com/PxHome',
     },
     {
@@ -96,7 +96,7 @@ function App() {
         'Built and maintained a citizen-facing portal with registration/login flows, application status tracking, and categorized digital service modules.',
       result:
         'Enabled easier access to fisheries-related services and improved process visibility for applicants through one online system.',
-      tech: ['ASP.NET', 'C#', 'JavaScript', 'SQL Server'],
+      tech: ['ASP.NET Core', 'MVC', 'C#', 'HTML', 'CSS', 'JavaScript', 'AJAX', 'SQL'],
       demo: 'https://fims.nafaa.gov.lr/',
     },
     {
@@ -108,7 +108,7 @@ function App() {
         'Built and supported an online self-service portal covering name search, registration, renewals, ownership updates, and status tracking.',
       result:
         'Simplified end-to-end business registration processes with improved accessibility and transparency for applicants.',
-      tech: ['ASP.NET', 'C#', 'JavaScript', 'SQL Server'],
+      tech: ['ASP.NET Core', 'MVC', 'C#', 'HTML', 'CSS', 'JavaScript', 'AJAX', 'SQL'],
       demo: 'https://lbrportal.mwetanacloud.com/',
     },
     {
@@ -120,7 +120,7 @@ function App() {
         'Implemented and maintained modules for organization onboarding, request access submission, and secure portal interactions for participating companies.',
       result:
         'Helped streamline participation in the LSHS-RBF program and improved accessibility to key financing-related portal services.',
-      tech: ['ASP.NET', 'C#', 'JavaScript', 'SQL Server'],
+      tech: ['ASP.NET Core', 'MVC', 'C#', 'HTML', 'CSS', 'JavaScript', 'AJAX', 'SQL'],
       demo: 'http://rbfportal.mwetanacloud.com/RBFHome/Index',
     },
     {
@@ -132,7 +132,7 @@ function App() {
         'Developed and supported end-to-end modules for online application, registration, validation checks, and secure administrative processing.',
       result:
         'Improved efficiency and transparency in teacher certification workflows through a unified online platform.',
-      tech: ['ASP.NET', 'C#', 'JavaScript', 'SQL Server'],
+      tech: ['ASP.NET Core', 'MVC', 'C#', 'HTML', 'CSS', 'JavaScript', 'AJAX', 'SQL'],
       demo: 'https://validteachersinliberia.org/',
     },
   ];
