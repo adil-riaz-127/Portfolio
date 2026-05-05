@@ -77,7 +77,7 @@ function App() {
   const projects = [
     {
       title: 'MWETANA Schoolink PX',
-      image: 'https://mwetanaschoolink.com/assetsLand/media/images/laptop.png',
+      image: '/SchoolLink.PNG',
       challenge:
         'Needed an integrated platform for school operations across academics, finance, and communication.',
       action:
@@ -89,7 +89,7 @@ function App() {
     },
     {
       title: 'NaFAA Self-Service Portal',
-      image: 'https://fims.nafaa.gov.lr/images/group%20190.png',
+      image: '/Fims.PNG',
       challenge:
         'Government fisheries services needed a central self-service platform for licensing, permits, authorizations, and certificate workflows.',
       action:
@@ -101,7 +101,7 @@ function App() {
     },
     {
       title: 'LBR Self-Service Portal',
-      image: 'https://lbrportal.mwetanacloud.com/images/group%20190.png',
+      image: '/LBR.PNG',
       challenge:
         'Business registration in Liberia required a faster, centralized, and fully digital workflow for citizens and organizations.',
       action:
@@ -110,6 +110,30 @@ function App() {
         'Simplified end-to-end business registration processes with improved accessibility and transparency for applicants.',
       tech: ['ASP.NET', 'C#', 'JavaScript', 'SQL Server'],
       demo: 'https://lbrportal.mwetanacloud.com/',
+    },
+    {
+      title: 'LSHS-RBF Portal',
+      image: '/RBF.PNG',
+      challenge:
+        'Liberia needed a focused digital platform to support result-based financing workflows for solar energy access across underserved areas.',
+      action:
+        'Implemented and maintained modules for organization onboarding, request access submission, and secure portal interactions for participating companies.',
+      result:
+        'Helped streamline participation in the LSHS-RBF program and improved accessibility to key financing-related portal services.',
+      tech: ['ASP.NET', 'C#', 'JavaScript', 'SQL Server'],
+      demo: 'http://rbfportal.mwetanacloud.com/RBFHome/Index',
+    },
+    {
+      title: 'Teacher Certification Validation System',
+      image: '/TCLS.PNG',
+      challenge:
+        'The Ministry of Education required a centralized digital workflow for teacher license application, validation, and certification tracking.',
+      action:
+        'Developed and supported end-to-end modules for online application, registration, validation checks, and secure administrative processing.',
+      result:
+        'Improved efficiency and transparency in teacher certification workflows through a unified online platform.',
+      tech: ['ASP.NET', 'C#', 'JavaScript', 'SQL Server'],
+      demo: 'https://validteachersinliberia.org/',
     },
   ];
   const [activeSection, setActiveSection] = useState('home');
